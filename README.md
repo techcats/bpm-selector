@@ -10,6 +10,7 @@ Include the following program arguments to the application launch:
 ```
 --spring.data.mongodb.host=$MONGODB_HOST
 --spring.data.mongodb.port=$MONGODB_PORT
+--spring.data.mongodb.database=$MONGODB_DB_NAME
 --spring.data.mongodb.username=$MONGODB_USER
 --spring.data.mongodb.password=$MONGODB_PASS
 ```
