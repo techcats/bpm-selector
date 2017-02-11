@@ -6,6 +6,10 @@
         <meta name="viewport" content="width=device-width">
         <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
         <base href="/">
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
         <!-- build:css styles/styles.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
@@ -24,6 +28,16 @@
                 <a href="https://github.com/https://github.com/techcats/bpm-selector">Fork me on Github</a>
             </div>
 
+            <div ng-controller="UserData">
+                <md-input-container>
+                    <label>User age</label>
+                    <input type="text" ng-model="user.age">
+                </md-input-container>
+
+                <p>testing.</p>
+                <p> Testing 3...</p>
+            </div>
+
             <!-- build:js scripts/scripts.js -->
             <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
             <script type="text/javascript" src="bower_components/angular-aria/angular-aria.js"></script>
@@ -34,6 +48,8 @@
             <script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
             <script type="text/javascript" src="bower_components/angular-material/angular-material.js"></script>
             <script type="text/javascript" src="scripts/app.js"></script>
+            <script type="text/javascript" src="scripts/userdata.controller.js"></script>
+
             <!-- endbuild -->
     </body>
 </html>
