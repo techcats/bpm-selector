@@ -29,11 +29,12 @@
 
 <div data-ng-controller="SongData" flex>
 
-    <img class="spotifylogin" layout-align="center end" src="assets/spotify-login.png" ng-click="spotifylogin()">
-    <div class="spotify-results animate" >
-        <iframe src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A2rp5riHULWgrXPsDtsp1ir&theme=white" width="300" height="340" frameborder="0" allowtransparency="true"></iframe>
-    </div>
-
+        <img ng-hide="isLoggedIn" class="spotifylogin" layout-align="center end" src="assets/spotify-login.png" ng-click="spotifylogin(); showme=false">
+        <div ng-show="isLoggedIn">
+            <div class="spotify-results animate" >
+                <iframe src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A2rp5riHULWgrXPsDtsp1ir&theme=white" width="300" height="340" frameborder="0" allowtransparency="true"></iframe>
+            </div>
+        </div>
     <!---->
     <!--<table>-->
         <!--<tr>-->

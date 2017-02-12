@@ -2,6 +2,8 @@ app.controller('SongData', function($scope, $http, $location) {
 
     var queryParams = $location.search();
 
+    $scope.isLoggedIn = typeof(queryParams.token) !== 'undefined' && queryParams.token !== '';
+
     $scope.songlist=[
         {name:"Drake", song:"Too Good", bpm:"117.98", genre:"pop"},
         {name:"Glantis", song:"No Money", bpm:"126.01", genre:"electro"},
