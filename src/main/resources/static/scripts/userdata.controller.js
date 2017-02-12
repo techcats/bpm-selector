@@ -24,6 +24,7 @@ app.controller('UserData', function($scope, $http, $mdDialog, $location) {
         }else{
             $scope.user.age = Math.max(1, Math.floor($scope.user.age));
             $scope.sendJSON();
+            $scope.getTracks();
         }
     }
     $scope.isExercise = function(){
@@ -42,6 +43,7 @@ app.controller('UserData', function($scope, $http, $mdDialog, $location) {
         }else{
             $scope.user.age = Math.max(1, Math.floor($scope.user.age));
             $scope.sendJSON();
+            $scope.getTracks();
         }
     }
 
@@ -54,15 +56,35 @@ app.controller('UserData', function($scope, $http, $mdDialog, $location) {
     		var dataObj = {
     				age : $scope.user.age,
     				activity : $scope.user.activity,
+    				gender : $scope.user.gender,
     		};
             var res = $http.put('/users/' + queryParams.userid, dataObj)
             		.then(function(data, status, headers, config) {
             			$scope.message = data;
             		});
             		// Making the fields empty
-            		//
-            		$scope.age='';
-            		$scope.activity='';
+
+            		$scope.user.age='';
+            		$scope.user.activity='';
+            		$scope.user.gender = 'female';
     };
+
+//    var queryParams = $location.search();
+
+
+    $scope.isLoggedIn = typeof(queryParams.token) !== 'undefined' && queryParams.token !== '';
+
+    $scope.spotifylogin = function(){
+        window.location.href = "/spotify/login?userid=" + queryParams.userid;
+    };
+
+    $scope.getTracks = function(){
+
+        $http.get('/spotify/tracks' + '?userid=' + queryParams.userid + '&token=' + queryParams.token + '&limit=10&offset=0')
+            .then(function(response){
+                $scope.tracks = response.data;
+            });
+    };
+
 });
 
