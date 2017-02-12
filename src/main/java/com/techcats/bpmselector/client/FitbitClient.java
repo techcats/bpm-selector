@@ -1,7 +1,6 @@
 package com.techcats.bpmselector.client;
 
 import com.google.api.client.auth.oauth2.*;
-import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestFactory;
@@ -51,7 +50,7 @@ public class FitbitClient {
         this.authorizeCode = code;
         byte[] valueDecodeed = Base64.getDecoder().decode(code);
         System.out.println("Decoded value is " + new String(valueDecodeed));
-        getUserInfo();
+       // getUserInfo();
 
     }
 
