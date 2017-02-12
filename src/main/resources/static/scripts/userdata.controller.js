@@ -1,7 +1,7 @@
 app.controller('UserData', function($scope, $http) {
 
 	$scope.user = {
-		age: '18',
+		age: '',
 		activity: 'Relaxation'
 	};
 
@@ -14,6 +14,11 @@ app.controller('UserData', function($scope, $http) {
         $scope.sendJSON();
     }
 
+    $scope.fitbitLogin = function() {
+
+        window.location.href = "/GrantFitbitAuthorization";
+    }
+
     $scope.sendJSON = function(){
 //    		$http.post({ 'User age':$scope.user.age, 'activity': $scope.user.activity });
     		// Writing it to the server
@@ -22,7 +27,7 @@ app.controller('UserData', function($scope, $http) {
     				age : $scope.user.age,
     				activity : $scope.user.activity,
     		};
-            var res = $http.post('/users', dataObj);
+            var res = $http.put('/users', dataObj);
             		res.then(function(data, status, headers, config) {
             			$scope.message = data;
             		});
