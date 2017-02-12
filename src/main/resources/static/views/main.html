@@ -5,13 +5,14 @@
     <div class="user_age">
         <md-input-container>
             <label>Enter your age</label>
-            <input type="text" ng-model="user.age">
+            <input type="number" ng-model="user.age" required="" min="1" max="999">
+
         </md-input-container>
     </div>
 
     <div data-layout="row" layout-align="center center" >
 
-        <md-button class="md-raised md-primary" ng-click="isRelax()">
+        <md-button class="md-raised md-primary" ng-click="isRelax($event)">
             Relaxation
         </md-button>
 
@@ -19,7 +20,6 @@
             Exercise
         </md-button>
 
-
     </div>
-    <!--<p>Selected Value: {{ user.activity }} </p>-->
+    <p>Selected Value: {{user.age}}  {{ user.activity }} </p>
 </div>
