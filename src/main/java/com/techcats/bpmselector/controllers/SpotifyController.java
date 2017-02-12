@@ -48,9 +48,6 @@ public class SpotifyController {
     public ResponseEntity<List<LibraryTrack>> getTracks(
             @RequestParam("userid") String userid,
             @RequestParam("token") String token,
-            @RequestParam("activity") String activity,
-            @RequestParam("age") Integer age,
-            @RequestParam("gender") String gender,
             @RequestParam("limit") Integer limit,
             @RequestParam("offset") Integer offset) {
         try {
