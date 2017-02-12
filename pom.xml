@@ -65,6 +65,15 @@
             <version>1.1</version>
             <systemPath>${basedir}/libs/WolframAlpha-1.1.jar</systemPath>
         </dependency>
+
+        <!-- Fitbit API -->
+        <dependency>
+            <groupId>com.fitbit</groupId>
+            <artifactId>FitbitAPI</artifactId>
+            <scope>system</scope>
+            <version>1.1</version>
+            <systemPath>${basedir}/libs/fitbit4j-1.0.26.jar</systemPath>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
         <dependency>
             <groupId>commons-codec</groupId>
