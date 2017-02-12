@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -31,9 +33,10 @@ public class WebRESTController {
     }
 
     @RequestMapping(value = "/ConnectedFitbit", method = RequestMethod.GET)
-    public String connectedToFitbit(@RequestParam("code") String code){
+    public ModelAndView connectedToFitbit(@RequestParam("code") String code){
         fitbitClient.setAuthorCode(code);
-        return "connect to fitbit";
+        String userId = "1";
+        return new ModelAndView("redirect:/dashboard?userid=" + userId);
     }
 
     @RequestMapping(value = "/GrantFitbitAuthorization")

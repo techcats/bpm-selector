@@ -4,7 +4,7 @@ var app = angular.module('BPMSelector', ['ngAnimate','ngCookies','ngResource','n
         .when('/', {
             templateUrl: '/views/front.html'
         })
-        .when('/main',  {
+        .when('/dashboard',  {
             templateUrl: '/views/main.html'
         })
         .when('/about', {
