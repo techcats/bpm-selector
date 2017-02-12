@@ -1,20 +1,28 @@
 package com.techcats.bpmselector.controllers;
 
 
+import com.fitbit.api.client.FitbitApiClientAgent;
+import com.fitbit.api.client.service.FitbitAPIClientService;
+import com.fitbit.api.model.APIResourceCredentials;
 import com.techcats.bpmselector.client.FitbitClient;
 import com.techcats.bpmselector.data.models.User;
 import com.techcats.bpmselector.manager.UserManager;
 import org.hashids.Hashids;
+import org.apache.tomcat.util.http.fileupload.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -33,11 +41,13 @@ public class WebRESTController {
     //Testing
     @RequestMapping(value = "/Nanwarin")
     public String nanwarinTest(){
+
         return fitbitClient.getAuthorURL();
     }
 
     @RequestMapping(value = "/ConnectedFitbit", method = RequestMethod.GET)
-    public ModelAndView connectedToFitbit(@RequestParam("code") String code){
+    public ModelAndView connectedToFitbit(@RequestParam("code") String code, HttpServletRequest request) throws IOException{
+
         fitbitClient.setAuthorCode(code);
         User user = userManager.findByFitBitCode(code);
         if (user == null) {
@@ -49,6 +59,7 @@ public class WebRESTController {
         }
         return new ModelAndView("redirect:/dashboard?userid=" + user.getHashId());
     }
+
 
     @RequestMapping(value = "/GrantFitbitAuthorization")
     public ResponseEntity<Object> grantFitbitAuthoraization() throws URISyntaxException{
