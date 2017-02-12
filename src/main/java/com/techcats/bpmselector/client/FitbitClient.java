@@ -51,7 +51,7 @@ public class FitbitClient {
         this.authorizeCode = code;
         byte[] valueDecodeed = Base64.getDecoder().decode(code);
         System.out.println("Decoded value is " + new String(valueDecodeed));
-        getUserInfo();
+        //getUserInfo();
 
     }
 
