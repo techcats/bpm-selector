@@ -211,6 +211,11 @@ footer p {
     -o-animation-fill-mode:backwards;
     animation-fill-mode:backwards;
 }
+
+.user_age{
+    text-align: center;
+}
+
 @-webkit-keyframes fadeInUp {
     from {
         zoom:1;
