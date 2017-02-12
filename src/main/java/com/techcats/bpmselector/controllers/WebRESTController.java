@@ -2,6 +2,9 @@ package com.techcats.bpmselector.controllers;
 
 
 import com.techcats.bpmselector.client.FitbitClient;
+import com.techcats.bpmselector.data.models.User;
+import com.techcats.bpmselector.manager.UserManager;
+import org.hashids.Hashids;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -24,7 +27,8 @@ public class WebRESTController {
     @Autowired
     FitbitClient fitbitClient;
 
-
+    @Autowired
+    UserManager userManager;
 
     //Testing
     @RequestMapping(value = "/Nanwarin")
@@ -35,8 +39,15 @@ public class WebRESTController {
     @RequestMapping(value = "/ConnectedFitbit", method = RequestMethod.GET)
     public ModelAndView connectedToFitbit(@RequestParam("code") String code){
         fitbitClient.setAuthorCode(code);
-        String userId = "1";
-        return new ModelAndView("redirect:/dashboard?userid=" + userId);
+        User user = userManager.findByFitBitCode(code);
+        if (user == null) {
+            // TEMP: cache users instead of save into database
+            user = new User();
+            user.setId((long) userManager.users.size());
+            user.setHashId(new Hashids().encode(user.getId()));
+            userManager.users.add(user);
+        }
+        return new ModelAndView("redirect:/dashboard?userid=" + user.getHashId());
     }
 
     @RequestMapping(value = "/GrantFitbitAuthorization")

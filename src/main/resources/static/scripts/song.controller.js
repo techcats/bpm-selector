@@ -1,4 +1,6 @@
-app.controller('SongData', function($scope, $http) {
+app.controller('SongData', function($scope, $http, $location) {
+
+    var queryParams = $location.search();
 
     $scope.songlist=[
         {name:"Drake", song:"Too Good", bpm:"117.98", genre:"pop"},
@@ -15,6 +17,6 @@ app.controller('SongData', function($scope, $http) {
     ];
 
     $scope.spotifylogin = function(){
-        window.location.href = "/spotify/login";
+        window.location.href = "/spotify/login?userid=" + queryParams.userid;
     };
 });

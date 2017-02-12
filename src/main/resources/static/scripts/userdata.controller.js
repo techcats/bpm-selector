@@ -1,6 +1,9 @@
-app.controller('UserData', function($scope, $http, $mdDialog) {
+app.controller('UserData', function($scope, $http, $mdDialog, $location) {
+
+    var queryParams = $location.search();
 
 	$scope.user = {
+	    hashId: queryParams.userid,
 		age: '',
 		activity: 'Relaxation'
 	};
@@ -51,7 +54,7 @@ app.controller('UserData', function($scope, $http, $mdDialog) {
     				age : $scope.user.age,
     				activity : $scope.user.activity,
     		};
-            var res = $http.put('/users/1', dataObj)
+            var res = $http.put('/users/' + queryParams.userid, dataObj)
             		.then(function(data, status, headers, config) {
             			$scope.message = data;
             		});
