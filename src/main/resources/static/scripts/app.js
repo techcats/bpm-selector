@@ -1,4 +1,4 @@
-var app = angular.module('BPMSelector', ['ngAnimate','ngCookies','ngResource','ngRoute','ngSanitize'])
+var app = angular.module('BPMSelector', ['ngAnimate','ngCookies','ngResource','ngRoute','ngSanitize','ngMaterial','ngMessages'])
 .config(function($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
