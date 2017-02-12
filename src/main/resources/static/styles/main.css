@@ -230,6 +230,20 @@ footer p {
     text-align: center;
 }
 
+.md-button {
+    font-family: 'Roboto', sans-serif; 
+    font-size: 14px;
+    text-align: center;
+    min-width: 100px;
+}
+
+.md-input-container{
+    font-family: 'Roboto', sans-serif; 
+    font-size: 12px;
+    text-align: center;
+}
+
+
 @-webkit-keyframes fadeInUp {
     from {
         zoom:1;
