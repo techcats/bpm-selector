@@ -6,7 +6,12 @@
         <meta name="viewport" content="width=device-width">
         <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
         <base href="/">
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
         <!-- build:css styles/styles.css -->
+        <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
     </head>
@@ -15,7 +20,7 @@
             <header>
                 <h1 class="animate">BPM Selector</h1>
                 <ul class="nav-links">
-                    <li><a href="/">Home<a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="about">About</a></li>
                 </ul>
             </header>
@@ -23,6 +28,33 @@
             <div class="forkme">
                 <a href="https://github.com/https://github.com/techcats/bpm-selector">Fork me on Github</a>
             </div>
+
+
+            <div ng-controller="UserData">
+
+                <div>
+
+                    <md-input-container>
+                        <label>User age</label>
+                        <input type="text" ng-model="user.age">
+                    </md-input-container>
+                </div>
+
+                <div layout="row">
+
+                    <md-button class="md-primary" ng-click="isRelax()">
+                        Relaxation
+                    </md-button>
+
+                    <md-button class="md-accent" ng-click="isExercise()">
+                        Exercise
+                    </md-button>
+
+
+                </div>
+                <p>Selected Value: {{ user.activity }} </p>
+            </div>
+
 
             <!-- build:js scripts/scripts.js -->
             <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
@@ -32,8 +64,11 @@
             <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
             <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
             <script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-            <script type="text/javascript" src="bower_components/angular-material/angular-material.js"></script>
+            <script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
+            <script type="text/javascript" src="bower_components/angular-messages/angular-messages.min.js"></script>
             <script type="text/javascript" src="scripts/app.js"></script>
+            <script type="text/javascript" src="scripts/userdata.controller.js"></script>
+
             <!-- endbuild -->
     </body>
 </html>
