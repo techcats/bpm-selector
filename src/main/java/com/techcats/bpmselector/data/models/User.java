@@ -6,7 +6,7 @@ public class User {
     private Long id;
     private String hashId;
     private String fitbitCode;
-    private String spotifyCode;
+    private String spotifyToken;
 
     public Long getId() {
         return id;
@@ -32,11 +32,11 @@ public class User {
         return fitbitCode;
     }
 
-    public void setSpotifyCode(String spotifyCode) {
-        this.spotifyCode = spotifyCode;
+    public void setSpotifyToken(String token) {
+        this.spotifyToken = token;
     }
 
-    public String getSpotifyCode() {
-        return spotifyCode;
+    public String getSpotifyToken() {
+        return spotifyToken;
     }
 }
