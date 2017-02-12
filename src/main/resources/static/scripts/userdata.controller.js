@@ -7,7 +7,7 @@ app.controller('UserData', function($scope, $http, $mdDialog) {
 
     $scope.isRelax = function(ev){
         $scope.user.activity = "Relaxation";
-        if($scope.user.age == '' || $scope.user.age < 1 || $scope.user.age > 999){
+        if(!angular.isNumber($scope.user.age) || $scope.user.age < 1 || $scope.user.age > 999){
                 $mdDialog.show(
                   $mdDialog.alert()
                     .parent(angular.element(document.querySelector('#popupContainer')))
@@ -19,12 +19,28 @@ app.controller('UserData', function($scope, $http, $mdDialog) {
                     .targetEvent(ev)
                 );
         }else{
+            $scope.user.age = Math.max(1, Math.floor($scope.user.age));
             $scope.sendJSON();
         }
     }
-    $scope.isExercise = function(){
+    $scope.isExercise = function(ev){
         $scope.user.activity = "Exercise";
-        $scope.sendJSON();
+
+        if(!angular.isNumber($scope.user.age) || $scope.user.age < 1 || $scope.user.age > 999){
+                $mdDialog.show(
+                  $mdDialog.alert()
+                    .parent(angular.element(document.querySelector('#popupContainer')))
+                    .clickOutsideToClose(true)
+                    .title('Uh Oh Something went wrong')
+                    .textContent('Probably your age...fix it!')
+                    .ariaLabel('dialog alert')
+                    .ok('Got it!')
+                    .targetEvent(ev)
+                );
+        }else{
+            $scope.user.age = Math.max(1, Math.floor($scope.user.age));
+            $scope.sendJSON();
+        }
     }
 
     $scope.fitbitLogin = function() {
