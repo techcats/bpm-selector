@@ -56,6 +56,13 @@
 			<version>1.5.0</version>
 		</dependency>
 
+		<!-- Google OAuth2 API -->
+		<dependency>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-oauth2</artifactId>
+			<version>v2-rev124-1.22.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
