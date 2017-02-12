@@ -1,8 +1,10 @@
 package com.techcats.bpmselector.controllers;
 
 import com.techcats.bpmselector.client.SpotifyClient;
+import com.techcats.bpmselector.client.WolframApiClient;
 import com.techcats.bpmselector.data.models.User;
 import com.techcats.bpmselector.manager.UserManager;
+import com.wolfram.alpha.WAException;
 import com.wrapper.spotify.exceptions.WebApiException;
 import com.wrapper.spotify.models.LibraryTrack;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class SpotifyController {
 
     @Autowired
     UserManager userManager;
+
+    @Autowired
+    WolframApiClient wolframClient;
 
     @RequestMapping("/login")
     public String login(@RequestParam("userid") String userid) {
@@ -49,12 +54,14 @@ public class SpotifyController {
             @RequestParam("userid") String userid,
             @RequestParam("token") String token,
             @RequestParam("limit") Integer limit,
-            @RequestParam("offset") Integer offset) {
+            @RequestParam("offset") Integer offset) throws WAException{
         try {
             User user = userManager.findbyHashId(userid);
             if (user == null) {
                 return ResponseEntity.notFound().build();
             }
+            wolframClient.query(user.getAge(), user.getGender());
+
             return ResponseEntity.ok(client.getTracks(token, limit, offset));
         } catch (IOException e) {
             e.printStackTrace();
@@ -62,5 +69,11 @@ public class SpotifyController {
             e.printStackTrace();
         }
         return ResponseEntity.badRequest().body(null);
+    }
+
+    @RequestMapping("/test")
+    public String test() throws WAException{
+        wolframClient.query(26, "female");
+        return "index";
     }
 }

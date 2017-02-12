@@ -9,6 +9,7 @@ public class User {
     private String spotifyToken;
     private int age;
     private String gender;
+    private int restHeartRate;
 
     public Long getId() {
         return id;
@@ -44,4 +45,7 @@ public class User {
 
     public int getAge(){ return age;}
     public String getGender(){return gender;}
+
+    public int getRestHeartRate(){ return restHeartRate;};
+    public void setRestHeartRate(int BPM){ this.restHeartRate = BPM;}
 }

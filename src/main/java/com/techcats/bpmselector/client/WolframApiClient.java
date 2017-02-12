@@ -19,17 +19,24 @@ public class WolframApiClient {
         engine.addFormat("plaintext");
     }
 
-    public void query(String input) throws WAException {
+    public void query(int age, String gender) throws WAException {
         if (engine == null) {
             initEngine();
         }
         WAQuery query = engine.createQuery();
-        query.setInput(input);
+        query.setInput(age+"+"+gender+"+"+"heart+rate");
+        query.addAssumption("*FVarOpt-_**HeartRate.THR--");
+
+
+
+
+        //query.setInput("26 female heart rate");
 
         engine.toURL(query);
         WAQueryResult result = engine.performQuery(query);
 
         System.out.println("Successful query. Pods follow:\n");
+
         for (WAPod pod : result.getPods()) {
             if (!pod.isError()) {
                 System.out.println(pod.getTitle());
@@ -37,7 +44,10 @@ public class WolframApiClient {
                 for (WASubpod subpod : pod.getSubpods()) {
                     for (Object element : subpod.getContents()) {
                         if (element instanceof WAPlainText) {
+                            if(((WAPlainText) element).getText().contains("BPM"))
+                                System.out.println(((WAPlainText) element).getText());
                             System.out.println(((WAPlainText) element).getText());
+
                             System.out.println("");
                         }
                     }
