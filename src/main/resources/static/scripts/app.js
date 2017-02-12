@@ -2,6 +2,9 @@ var app = angular.module('BPMSelector', ['ngAnimate','ngCookies','ngResource','n
 .config(function($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
+            templateUrl: '/views/front.html'
+        })
+        .when('/main',  {
             templateUrl: '/views/main.html'
         })
         .when('/about', {

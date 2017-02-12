@@ -22,7 +22,7 @@ app.controller('UserData', function($scope, $http) {
     				age : $scope.user.age,
     				activity : $scope.user.activity,
     		};
-            var res = $http.post('/user_data_jso', dataObj);
+            var res = $http.post('/users', dataObj);
             		res.then(function(data, status, headers, config) {
             			$scope.message = data;
             		});

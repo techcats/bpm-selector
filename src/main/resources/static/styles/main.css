@@ -19,6 +19,12 @@ time, mark, audio, video {
     vertical-align: baseline;
     font-family: 'Roboto', sans-serif;
 }
+
+.logo {
+    max-width: 50%;
+    height: auto;
+}
+
 html {
     line-height: 1;
 }
@@ -78,7 +84,7 @@ header a:hover, main a:hover, footer a:hover {
 }
 
 header {
-    background-color: #242431;
+    background-color: #000000;
     height:115px;
     color:#FFF;
 }
@@ -98,6 +104,12 @@ header h1 {
 header p {
     text-align: center;
     font-size: 19px;
+}
+
+header img {
+    margin: 0 auto;
+    display: block;
+    height: 100px;
 }
 
 main h2 {

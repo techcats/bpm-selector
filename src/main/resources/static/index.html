@@ -18,42 +18,20 @@
     <body ng-app="BPMSelector">
             
             <header>
-                <h1 class="animate">BPM Selector</h1>
-                <ul class="nav-links">
+
+                <!--<h1 class="animate">BPM Selector</h1>-->
+                <img class="animate" src="assets/BW_Logo_1.png">
+                <ul layout="row" class="nav-links">
                     <li><a href="/">Home</a></li>
                     <li><a href="about">About</a></li>
                 </ul>
             </header>
             <div ng-view></div>
-            <div class="forkme">
-                <a href="https://github.com/https://github.com/techcats/bpm-selector">Fork me on Github</a>
-            </div>
+            <!--<div class="forkme">-->
+                <!--<a href="https://github.com/https://github.com/techcats/bpm-selector">Fork me on Github</a>-->
+            <!--</div>-->
 
 
-            <div ng-controller="UserData">
-
-                <div>
-
-                    <md-input-container>
-                        <label>User age</label>
-                        <input type="text" ng-model="user.age">
-                    </md-input-container>
-                </div>
-
-                <div layout="row">
-
-                    <md-button class="md-primary" ng-click="isRelax()">
-                        Relaxation
-                    </md-button>
-
-                    <md-button class="md-accent" ng-click="isExercise()">
-                        Exercise
-                    </md-button>
-
-
-                </div>
-                <p>Selected Value: {{ user.activity }} </p>
-            </div>
 
 
             <!-- build:js scripts/scripts.js -->
