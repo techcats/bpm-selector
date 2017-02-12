@@ -1,15 +1,20 @@
 <!--<p>Techcats</p>-->
-
+<div layout="column">
 <div data-ng-controller="UserData">
 
-    <div class="user_age">
+    <div class="user_age" flex>
         <md-input-container>
             <p>Enter your age below</p>
-            <input style="width:150px;" text-align="center" type="number" ng-model="user.age" required="" min="1" max="999">
-
+            <input style="width:150px;" type="number" ng-model="user.age" required="" min="1" max="999">
         </md-input-container>
+
+        <md-radio-group class="radiobtns" ng-model="user.gender" layout-align="center center" data-layout="row">
+            <md-radio-button value="female" class="md-primary">Female</md-radio-button>
+            <md-radio-button value="male">Male</md-radio-button>
+        </md-radio-group>
     </div>
-    <div data-layout="row" layout-align="center center">
+
+    <div data-layout="row" layout-align="center center" flex>
 
         <md-button font-family="Garamond" class="md-raised md-primary" ng-click="isRelax()">
             Relaxation
@@ -22,11 +27,11 @@
     <!--<p>Selected Value: {{user.age}}  {{ user.activity }} </p>-->
 </div>
 
-<div data-ng-controller="SongData">
+<div data-ng-controller="SongData" flex>
 
     <img class="spotifylogin" layout-align="center end" src="assets/spotify-login.png" ng-click="spotifylogin()">
     <div class="spotify-results animate" >
-        <iframe src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A2rp5riHULWgrXPsDtsp1ir&theme=white" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+        <iframe src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A2rp5riHULWgrXPsDtsp1ir&theme=white" width="300" height="340" frameborder="0" allowtransparency="true"></iframe>
     </div>
 
     <!---->
@@ -44,4 +49,5 @@
             <!--<td>{{song.genre}}</td>-->
         <!--</tr>-->
     <!--</table>-->
+</div>
 </div>

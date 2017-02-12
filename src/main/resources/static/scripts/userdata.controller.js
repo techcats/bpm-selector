@@ -5,7 +5,8 @@ app.controller('UserData', function($scope, $http, $mdDialog, $location) {
 	$scope.user = {
 	    hashId: queryParams.userid,
 		age: '',
-		activity: 'Relaxation'
+		activity: 'Relaxation',
+		gender: 'female'
 	};
 
     $scope.isRelax = function(){
