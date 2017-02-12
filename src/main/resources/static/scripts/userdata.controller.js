@@ -51,7 +51,7 @@ app.controller('UserData', function($scope, $http, $mdDialog) {
     				age : $scope.user.age,
     				activity : $scope.user.activity,
     		};
-            var res = $http.put('/users', dataObj)
+            var res = $http.put('/users/1', dataObj)
             		.then(function(data, status, headers, config) {
             			$scope.message = data;
             		});
