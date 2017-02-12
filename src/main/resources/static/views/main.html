@@ -1,6 +1,6 @@
 <!--<p>Techcats</p>-->
-<div layout="column">
-<div data-ng-controller="UserData">
+<div layout="column" data-ng-controller="UserData">
+<div>
 
     <div class="user_age" flex>
         <md-input-container>
@@ -10,7 +10,7 @@
 
         <md-radio-group class="radiobtns" ng-model="user.gender" layout-align="center center" data-layout="row">
             <md-radio-button value="female" class="md-primary">Female</md-radio-button>
-            <md-radio-button value="male">Male</md-radio-button>
+            <md-radio-button value="male" class="md-primary">Male</md-radio-button>
         </md-radio-group>
     </div>
 
@@ -27,7 +27,7 @@
     <!--<p>Selected Value: {{user.age}}  {{ user.activity }} </p>-->
 </div>
 
-<div data-ng-controller="SongData" flex>
+<div flex>
 
         <img ng-hide="isLoggedIn" class="spotifylogin" layout-align="center end" src="assets/spotify-login.png" ng-click="spotifylogin(); showme=false">
         <div ng-show="isLoggedIn">
@@ -35,20 +35,21 @@
                 <iframe src="https://embed.spotify.com/?uri=spotify%3Aalbum%3A2rp5riHULWgrXPsDtsp1ir&theme=white" width="300" height="340" frameborder="0" allowtransparency="true"></iframe>
             </div>
         </div>
-    <!---->
-    <!--<table>-->
-        <!--<tr>-->
-            <!--<td>Artist</td>-->
-            <!--<td>Song</td>-->
-            <!--<td>BPM</td>-->
-            <!--<td>Genre</td>-->
-        <!--</tr>-->
-        <!--<tr ng-repeat="song in songlist">-->
-            <!--<td>{{song.name}}</td>-->
-            <!--<td>{{song.song}}</td>-->
-            <!--<td>{{song.bpm}}</td>-->
-            <!--<td>{{song.genre}}</td>-->
-        <!--</tr>-->
-    <!--</table>-->
 </div>
+
+    <div>
+    <table class="table text-center">
+        
+        <tr>
+            <td>Artist</td>
+            <td>Song</td>
+        </tr>
+        <tr ng-repeat="song in tracks">
+            <!--<td ng-repeat="artist in song.track.artists">{{artist.name}}</td>-->
+            <td>{{song.track.artists[0].name}}</td>
+            <td>{{song.track.name}}</td>
+
+        </tr>
+    </table>
+    </div>
 </div>
