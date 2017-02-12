@@ -7,6 +7,8 @@ public class User {
     private String hashId;
     private String fitbitCode;
     private String spotifyToken;
+    private int age;
+    private String gender;
 
     public Long getId() {
         return id;
@@ -39,4 +41,7 @@ public class User {
     public String getSpotifyToken() {
         return spotifyToken;
     }
+
+    public int getAge(){ return age;}
+    public String getGender(){return gender;}
 }

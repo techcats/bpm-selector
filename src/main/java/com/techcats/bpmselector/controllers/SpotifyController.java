@@ -51,6 +51,10 @@ public class SpotifyController {
             @RequestParam("limit") Integer limit,
             @RequestParam("offset") Integer offset) {
         try {
+            User user = userManager.findbyHashId(userid);
+            if (user == null) {
+                return ResponseEntity.notFound().build();
+            }
             return ResponseEntity.ok(client.getTracks(token, limit, offset));
         } catch (IOException e) {
             e.printStackTrace();
