@@ -60,8 +60,7 @@ public class SpotifyController {
             if (user == null) {
                 return ResponseEntity.notFound().build();
             }
-            wolframClient.query(user.getAge(), user.getGender());
-
+            wolframClient.query(user);
             return ResponseEntity.ok(client.getTracks(token, limit, offset));
         } catch (IOException e) {
             e.printStackTrace();
@@ -71,9 +70,9 @@ public class SpotifyController {
         return ResponseEntity.badRequest().body(null);
     }
 
-    @RequestMapping("/test")
-    public String test() throws WAException{
-        wolframClient.query(26, "female");
-        return "index";
-    }
+//    @RequestMapping("/test")
+//    public String test() throws WAException{
+//        wolframClient.query(26, "female");
+//        return "index";
+//    }
 }

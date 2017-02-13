@@ -62,11 +62,6 @@ app.controller('UserData', function($scope, $http, $mdDialog, $location) {
             		.then(function(data, status, headers, config) {
             			$scope.message = data;
             		});
-            		// Making the fields empty
-
-            		$scope.user.age='';
-            		$scope.user.activity='';
-            		$scope.user.gender = 'female';
     };
 
 //    var queryParams = $location.search();

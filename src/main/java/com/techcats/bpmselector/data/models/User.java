@@ -10,6 +10,7 @@ public class User {
     private int age;
     private String gender;
     private int restHeartRate;
+    private int targetHeartRate;
 
     public Long getId() {
         return id;
@@ -44,8 +45,17 @@ public class User {
     }
 
     public int getAge(){ return age;}
+    public void setAge(int age) {
+        this.age = age;
+    }
     public String getGender(){return gender;}
+    public void setGender(String gender) {
+        this.gender =  gender;
+    }
 
     public int getRestHeartRate(){ return restHeartRate;};
     public void setRestHeartRate(int BPM){ this.restHeartRate = BPM;}
+
+    public int getTargetHeartRate(){ return restHeartRate;};
+    public void setTargetHeartRate(int BPM){ this.targetHeartRate = BPM;}
 }
