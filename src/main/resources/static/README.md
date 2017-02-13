@@ -7,6 +7,7 @@ Static resources for BPM Selector service
 ```
 npm install -g bower
 npm install -g gulp
+cd src/main/resources/static
 npm install
 bower install
 ```

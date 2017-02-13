@@ -13,6 +13,18 @@ Include the following program arguments to the application launch:
 --spring.data.mongodb.database=$MONGODB_DB_NAME
 --spring.data.mongodb.username=$MONGODB_USER
 --spring.data.mongodb.password=$MONGODB_PASS
+
+--bpmselector.thirdparty.fitbit.clientid=$FITBIT_CLIENT_ID
+--bpmselector.thirdparty.fitbit.secretid=$FITBIT_SECRET_ID
+--bpmselector.thirdparty.fitbit.authorurl=https://www.fitbit.com/oauth2/authorize
+--bpmselector.thirdparty.fitbit.requesturl=https://api.fitbit.com/oauth2/token
+--bpmselector.thirdparty.fitbit.redirectedurl=http://localhost:8080/ConnectedFitbit
+
+--bpmselector.thirdparty.spotify.clientid=$SPOTIFY_CLIENT_ID
+--bpmselector.thirdparty.spotify.clientsecret=$SPOTIFY_CLIENT_SECRET
+--bpmselector.thirdparty.spotify.redirecturi=http://localhost:8080/spotify/accept
+
+--bpmselector.thirdparty.wolframalpha.appid=$WOLFRAM_ALPHA_APP_ID
 ```
 
 > In best practice, do not hard code API keys or credentials.
